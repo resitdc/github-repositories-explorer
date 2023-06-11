@@ -11,6 +11,9 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+// I use persist for my redux state
+// This is so that the data is not immediately lost and stored in local storage
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
