@@ -1,0 +1,29 @@
+.text {
+  &-left {
+    text-align: left;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
+.color {
+  &-primary {
+    color: var(--color-primary);
+  }
+  &-red {
+    color: var(--color-red);
+  }
+  &-black-1 {
+    color: var(--color-black-1);
+  }
+  &-gray-1 {
+    color: var(--color-gray-1);
+  }
+  &-gray-2 {
+    color: var(--color-gray-2);
+  }
+}
