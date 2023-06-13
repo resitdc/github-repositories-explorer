@@ -1,4 +1,4 @@
-
+/* eslint-disable no-alert */
 import React, { useState } from "react";
 import { UserButton, UserRepo } from "components/atoms";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,6 +32,7 @@ const User: React.FC<UserProps> = (props) => {
       const responseData = error?.response?.data as Response | undefined;
       if (responseData) {
         // In case backend have a message
+        alert("Something wrong, message from backend");
       } else {
         alert("Something wrong, try again");
       }
