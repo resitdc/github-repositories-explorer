@@ -1,13 +1,13 @@
 /* eslint-disable no-alert */
 import React, { useState } from "react";
-import { Button, Input } from "components/atoms";
+import { Button, Input, FormGroup } from "components/atoms";
 import useAPI from "plugins/api";
 import { useDispatch } from "react-redux";
 import { setUsers } from "plugins/redux/actions/github";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
-const Error: React.FC = () => {
+const Home: React.FC = () => {
   const { getUsersSearch } = useAPI();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -17,8 +17,7 @@ const Error: React.FC = () => {
   }  
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string()
-      .required("Can not be empty"),
+    username: Yup.string().required("Username is required"),
   });
   
   const initialValues: FormValues = {
@@ -56,13 +55,15 @@ const Error: React.FC = () => {
         >
           {({ errors }) => (
             <Form>
-              <Field
-                as={Input}
-                type="search"
-                placeholder="Enter username"
-                name="username"
-                disabled={isLoading}
-              />
+              <FormGroup message={errors.username}>
+                <Field
+                  as={Input}
+                  type="search"
+                  placeholder="Enter username"
+                  name="username"
+                  disabled={isLoading}
+                />
+              </FormGroup>
       
               <Button
                 type="submit"
@@ -76,9 +77,27 @@ const Error: React.FC = () => {
             </Form>
           )}
         </Formik>
+
+        <div className="mt-4">
+          <ul className="users">
+            <li className="user active">
+              <button
+                type="button"
+                className="user-head"
+              >
+                <div className="user-name">resitdc</div>
+              </button>
+              <div className="user-repos">
+                <ul>
+                  <li></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Error;
+export default Home;

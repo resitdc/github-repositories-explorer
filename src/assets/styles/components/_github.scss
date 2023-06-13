@@ -1,0 +1,44 @@
+ul.users {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user {
+  width: 100%;
+  position: relative;
+  & &-head {
+    width: 100%;
+    background-color: var(--color-gray-1);
+    padding: 10px 14px;
+    position: relative;
+    outline: none;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    &::after {
+      $padding-x: 12px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 20px;
+      margin-right: 13px;
+      content: "";
+      background-image: url("../../icons/chevron-down.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  &#{&}.active {
+    & button.user-head::after {
+      transform: rotate(180deg);
+    } 
+  }
+}
