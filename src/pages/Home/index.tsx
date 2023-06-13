@@ -2,7 +2,12 @@ import React from "react";
 
 const Error: React.FC = () => (
   <div>
-    <h1>SAMPLE PAGE</h1>
+    <div>
+      <input type="search" name="" />
+      <button type="submit" className="btn btn-primary">
+        Search
+      </button>
+    </div>
   </div>
 );
 
