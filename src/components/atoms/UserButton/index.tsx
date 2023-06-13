@@ -27,7 +27,7 @@ const UserButton: React.FC<UserButtonProps> = (props) => {
       >
         <div className="user-name">{label}</div>
       </button>
-      {children}
+      {isActive ? children : ""}
     </li>
   );
 };

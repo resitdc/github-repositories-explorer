@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useState } from "react";
-import { Button, Input, FormGroup } from "components/atoms";
+import { Button, Input, FormGroup, UserButton } from "components/atoms";
 import useAPI from "plugins/api";
 import { useDispatch } from "react-redux";
 import { setUsers } from "plugins/redux/actions/github";
@@ -80,22 +80,34 @@ const Home: React.FC = () => {
 
         <div className="mt-4">
           <ul className="users">
-            <li className="user active">
-              <button
-                type="button"
-                className="user-head"
-              >
-                <div className="user-name">resitdc</div>
-              </button>
-            </li>
-            <li className="user active">
-              <button
-                type="button"
-                className="user-head"
-              >
-                <div className="user-name">resitdc</div>
-              </button>
-            </li>
+            <UserButton label="resitdc" isActive>
+              <ul className="user-repos">
+                <li className="user-repo">
+                  <div className="user-repo-title">Repository Title</div>
+                  <div className="user-repo-description">Descriptions</div>
+                  <div className="user-repo-stars">20</div>
+                </li>
+                <li className="user-repo">
+                  <div className="user-repo-title">Repository Title 2</div>
+                  <div className="user-repo-description">Descriptions</div>
+                  <div className="user-repo-stars">6</div>
+                </li>
+              </ul>
+            </UserButton>
+            <UserButton label="resitdc" isActive>
+              <ul className="user-repos">
+                <li className="user-repo">
+                  <div className="user-repo-title">Repository Title</div>
+                  <div className="user-repo-description">Descriptions</div>
+                  <div className="user-repo-stars">20</div>
+                </li>
+                <li className="user-repo">
+                  <div className="user-repo-title">Repository Title 2</div>
+                  <div className="user-repo-description">Descriptions</div>
+                  <div className="user-repo-stars">6</div>
+                </li>
+              </ul>
+            </UserButton>
           </ul>
         </div>
       </div>
