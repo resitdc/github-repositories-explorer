@@ -1,0 +1,55 @@
+
+$start-spacing: 0.35rem;
+$direction-end: 10;
+
+$m-directions: "m", "mb", "mt", "ml", "mr", "mx", "my";
+@each $direction in $m-directions {
+  @for $i from 0 to $direction-end {
+    .#{$direction}-#{$i} {
+      $spacing: $start-spacing * $i;
+      @if $direction == "m" {
+        margin: $spacing;
+      } @else if $direction == "mb" {
+        margin-bottom: $spacing;
+      } @else if $direction == "mt" {
+        margin-top: $spacing;
+      } @else if $direction == "ml" {
+        margin-left: $spacing;
+      } @else if $direction == "mr" {
+        margin-right: $spacing;
+      } @else if $direction == "mx" {
+        margin-left: $spacing;
+        margin-right: $spacing;
+      } @else if $direction == "my" {
+        margin-top: $spacing;
+        margin-bottom: $spacing;
+      }
+    }
+  }
+}
+
+$p-directions: "p", "pb", "pt", "pl", "pr", "px", "py";
+@each $direction in $p-directions {
+  @for $i from 0 to $direction-end {
+    .#{$direction}-#{$i} {
+      $spacing: $start-spacing * $i;
+      @if $direction == "p" {
+        padding: $spacing !important;
+      } @else if $direction == "pb" {
+        padding-bottom: $spacing !important;
+      } @else if $direction =="pt" {
+        padding-top: $spacing  !important;
+      } @else if $direction == "pl" {
+        padding-left: $spacing !important;
+      } @else if $direction == "pr" {
+        padding-right: $spacing !important;
+      } @else if $direction == "px" {
+        padding-right: $spacing !important;
+        padding-left: $spacing !important;
+      } @else if $direction == "py" {
+        padding-top: $spacing !important;
+        padding-bottom: $spacing !important;
+      }
+    }
+  }
+}
