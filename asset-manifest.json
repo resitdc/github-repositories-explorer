@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/github-repositories-explorer/static/css/main.451f06d6.css",
+    "main.js": "/github-repositories-explorer/static/js/main.de27a1b8.js",
+    "static/js/787.b1bdeb13.chunk.js": "/github-repositories-explorer/static/js/787.b1bdeb13.chunk.js",
+    "index.html": "/github-repositories-explorer/index.html",
+    "static/media/loading-2.svg": "/github-repositories-explorer/static/media/loading-2.d2668480643151055b23.svg",
+    "static/media/star.svg": "/github-repositories-explorer/static/media/star.d35f688165572e587f96.svg",
+    "static/media/chevron-down.svg": "/github-repositories-explorer/static/media/chevron-down.2d7ccf1adc81685d6eaf.svg",
+    "main.451f06d6.css.map": "/github-repositories-explorer/static/css/main.451f06d6.css.map",
+    "main.de27a1b8.js.map": "/github-repositories-explorer/static/js/main.de27a1b8.js.map",
+    "787.b1bdeb13.chunk.js.map": "/github-repositories-explorer/static/js/787.b1bdeb13.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.451f06d6.css",
+    "static/js/main.de27a1b8.js"
+  ]
+}
