@@ -1,12 +1,14 @@
 import React from "react";
+import { Button } from "components/atoms";
 
 const Error: React.FC = () => (
   <div>
     <div>
       <input type="search" name="" />
-      <button type="submit" className="btn btn-primary">
+
+      <Button type="submit" color="primary" isLoading>
         Search
-      </button>
+      </Button>
     </div>
   </div>
 );

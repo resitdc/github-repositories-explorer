@@ -1,2 +1,1 @@
-// THIS IS ATOMS INDEX
-export default "test";
+export { default as Button } from "components/atoms/Button";
