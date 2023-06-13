@@ -87,11 +87,14 @@ const Home: React.FC = () => {
               >
                 <div className="user-name">resitdc</div>
               </button>
-              <div className="user-repos">
-                <ul>
-                  <li></li>
-                </ul>
-              </div>
+            </li>
+            <li className="user active">
+              <button
+                type="button"
+                className="user-head"
+              >
+                <div className="user-name">resitdc</div>
+              </button>
             </li>
           </ul>
         </div>

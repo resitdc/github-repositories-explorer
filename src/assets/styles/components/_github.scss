@@ -7,6 +7,9 @@ ul.users {
 .user {
   width: 100%;
   position: relative;
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
   & &-head {
     width: 100%;
     background-color: var(--color-gray-1);
