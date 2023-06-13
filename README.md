@@ -113,3 +113,16 @@ The application follows the Atomic Design methodology, organizing components int
 ├── README.md
 └── tsconfig.json
 ```
+
+# Credits
+
+This project is developed by [Restu D. Cahyo](http://resitdc.id/).
+
+Connect with me:
+
+- LinkedIn: [Restu D. Cahyo](https://www.linkedin.com/in/resitdc/)
+- Instagram: [resitdc](https://www.instagram.com/resitdc/)
+- Website: [resitdc.id](http://resitdc.id/)
+- Email: restu@resitdc.id
+
+Feel free to reach out to me if you have any questions, suggestions, or collaboration opportunities.
