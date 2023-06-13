@@ -1,16 +1,19 @@
 /* eslint-disable no-alert */
 import React, { useState } from "react";
 import { Button, Input, FormGroup, UserButton } from "components/atoms";
+import { Users } from "components/molecules";
 import useAPI from "plugins/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUsers } from "plugins/redux/actions/github";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { UsersTypes } from "interfaces/github";
 
 const Home: React.FC = () => {
   const { getUsersSearch } = useAPI();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const users = useSelector((state: RootStateType) => state.githubReducer.users);
 
   interface FormValues {
     username: string;
@@ -79,36 +82,18 @@ const Home: React.FC = () => {
         </Formik>
 
         <div className="mt-4">
-          <ul className="users">
-            <UserButton label="resitdc" isActive>
-              <ul className="user-repos">
-                <li className="user-repo">
-                  <div className="user-repo-title">Repository Title</div>
-                  <div className="user-repo-description">Descriptions</div>
-                  <div className="user-repo-stars">20</div>
-                </li>
-                <li className="user-repo">
-                  <div className="user-repo-title">Repository Title 2</div>
-                  <div className="user-repo-description">Descriptions</div>
-                  <div className="user-repo-stars">6</div>
-                </li>
-              </ul>
-            </UserButton>
-            <UserButton label="resitdc" isActive>
-              <ul className="user-repos">
-                <li className="user-repo">
-                  <div className="user-repo-title">Repository Title</div>
-                  <div className="user-repo-description">Descriptions</div>
-                  <div className="user-repo-stars">20</div>
-                </li>
-                <li className="user-repo">
-                  <div className="user-repo-title">Repository Title 2</div>
-                  <div className="user-repo-description">Descriptions</div>
-                  <div className="user-repo-stars">6</div>
-                </li>
-              </ul>
-            </UserButton>
-          </ul>
+          {
+            users.length > 0
+              ? (
+                <Users
+                  data={users.map((user: UsersTypes) => ({
+                    id: user.id,
+                    username: user.login
+                  }))}
+                />
+              )
+              : <h1>NO USERS FOUND</h1>
+          }
         </div>
       </div>
     </div>

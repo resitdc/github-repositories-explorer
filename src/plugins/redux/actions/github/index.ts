@@ -1,4 +1,4 @@
-import { UsersTypes, Repository } from "interfaces/github";
+import { UsersTypes, Repository, UserRepository } from "interfaces/github";
 import {
   ClearAllAction,
   ClearReposAction,
@@ -12,9 +12,9 @@ export const setUsers = (user: UsersTypes): SetUsersAction => ({
   payload: user
 });
 
-export const setRepos = (repository: Repository): SetReposAction => ({
+export const setRepos = (userRepository: UserRepository): SetReposAction => ({
   type: "SET_REPOS",
-  payload: repository
+  payload: userRepository
 });
 
 export const clearUsers = (): ClearUsersAction => ({

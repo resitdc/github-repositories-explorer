@@ -22,12 +22,12 @@ const UserButton: React.FC<UserButtonProps> = (props) => {
     <li className={`user${isActive ? " active" : ""}`}>
       <button
         type="button"
-        className="user-head"
+        className={`user-head${isLoading ? " user-loading" : ""}`}
         onClick={onClick}
       >
         <div className="user-name">{label}</div>
       </button>
-      {isActive ? children : ""}
+      {!isLoading && isActive ? children : ""}
     </li>
   );
 };

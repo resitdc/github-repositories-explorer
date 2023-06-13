@@ -1,5 +1,5 @@
 import { Action } from "redux";
-import { UsersTypes, Repository } from "interfaces/github";
+import { UsersTypes, Repository, UserRepository } from "interfaces/github";
 
 export interface UserData {
   username: string;
@@ -12,7 +12,7 @@ export interface SetUsersAction extends Action<"SET_USERS"> {
 }
 
 export interface SetReposAction extends Action<"SET_REPOS"> {
-  payload: Repository;
+  payload: UserRepository;
 }
 
 export type ClearAllAction = Action<"CLEAR_ALL">;

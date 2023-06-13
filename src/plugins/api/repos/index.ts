@@ -7,7 +7,7 @@ export const useRepos = () => {
 
   // Get all repos users
   const getUsersRepos = (
-    username: string,
+    username: string | null | undefined,
     perPage: number = 10,
     page: number = 1
   ) =>

@@ -1,3 +1,29 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+%spinner {
+  animation-name: spin;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+%pulse {
+  animation-name: spin;
+  animation-direction: normal;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(8);
+}
+            
 %ul-style-none {
   list-style-type: none;
   margin: 0;
@@ -41,6 +67,27 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease-in-out;
+    }
+  }
+  & &-loading {
+    &::after {
+      $padding-x: 12px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 20px;
+      margin-right: 13px;
+      content: "";
+      background-image: url("../../icons/loading-2.svg") !important;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+      @extend %pulse;
     }
   }
   &#{&}.active {
@@ -100,5 +147,10 @@
         justify-content: center;
       }
     }
+  }
+  & &-no-repos {
+    text-align: center;
+    color: var(--color-red);
+    padding: 16px 4px;
   }
 }

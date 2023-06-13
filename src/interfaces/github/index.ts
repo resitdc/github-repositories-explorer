@@ -110,3 +110,8 @@ export interface InitialStateTypes {
   users: UsersTypes[];
   repos: Repositories
 }
+
+export interface UserRepository {
+  key: string | null | undefined;
+  value: Repository;
+}

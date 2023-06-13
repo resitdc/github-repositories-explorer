@@ -3,7 +3,7 @@ import React from "react";
 
 interface UserRepoProps {
   title?: string;
-  description?: string;
+  description?: string | null | undefined;
   stars?: string | number | null;
 };
 
