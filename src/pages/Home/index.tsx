@@ -85,23 +85,18 @@ const Home: React.FC = () => {
           submitedUsername &&
           <div className="color-black-2 py-2">Showing users for "{submitedUsername}"</div>
         }
-        <div className="skeleton-loading" style={{width: "100%", height: "20px"}}></div>
         <div className="mt-2">
           {
-            users.length > 0
-              ? (
-                <Users
-                  data={users.map((user: UsersTypes) => ({
-                    id: user.id,
-                    username: user.login
-                  }))}
-                />
-              )
-              : (
-                submitedUsername &&
-                <h2 className="text-center color-red">NO USER FOUND</h2>
-              )
+            users.length === 0 && submitedUsername &&
+            <h2 className="text-center color-red">NO USER FOUND</h2>
           }
+          <Users
+            data={users.map((user: UsersTypes) => ({
+              id: user.id,
+              username: user.login
+            }))}
+            isLoading={isLoading}
+          />
         </div>
       </div>
     </div>
