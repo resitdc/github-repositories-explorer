@@ -1,0 +1,18 @@
+%base-container {
+  $margin-x: auto;
+  $padding-x: 20px;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: $margin-x;
+  margin-left: $margin-x;
+}
+
+.container {
+  @extend %base-container;
+  width: 100%;
+}
+
+.mobile-container {
+  @extend %base-container;
+  max-width: 450px;
+}
