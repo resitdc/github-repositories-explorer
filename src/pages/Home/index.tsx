@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "components/atoms";
+import { Button, Input } from "components/atoms";
 
 const Error: React.FC = () => (
   <div>
     <div>
-      <input type="search" className="form-input" placeholder="Test" />
+      <Input type="search" placeholder="Test" />
 
       <Button type="submit" color="primary" isLoading>
         Search
