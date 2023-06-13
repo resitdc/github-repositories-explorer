@@ -29,4 +29,13 @@ $main-class: ".form";
       color: $placeholder-text-color;
     }
   }
+  &-group {
+    position: relative;
+    &-message {
+      margin-top: 4px;
+      text-align: left;
+      color: var(--color-red-1);
+      font-size: 14px;
+    }
+  }
 }
