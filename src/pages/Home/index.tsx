@@ -81,7 +81,11 @@ const Home: React.FC = () => {
             </Form>
           )}
         </Formik>
-        <div className="mt-4">
+        {
+          submitedUsername &&
+          <div className="color-black-2 py-2">Showing users for "{submitedUsername}"</div>
+        }
+        <div className="mt-2">
           {
             users.length > 0
               ? (

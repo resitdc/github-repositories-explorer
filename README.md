@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# GitHub Repositories Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub Repositories Explorer](/public/project-screenshot.png)
 
-## Available Scripts
+GitHub Repositories Explorer is a React TypeScript application that allows users to explore GitHub users and their repos. This application utilizes various technologies such as React, TypeScript, SASS, Formik, Yup, Redux and Axios.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **User Search**: Users can search for GitHub users by entering keywords in the search bar. The application provides real-time suggestions as the user types.
+- **User Listing**: The search results are displayed as a list, showing the github username.
+- **Repository Listing**: Each user list that is clicked will display all repository lists from that user (public only).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Follow the steps below to install and run the GitHub Repositories Explorer application locally.
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/resitdc/github-repositories-explorer.git
+```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd github-repositories-explorer
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install the dependencies using npm:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After completing the installation steps, you can run the application using the following command:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This will start the development server and open the application in your default web browser. If the browser does not open automatically, navigate to [http://localhost:3000](http://localhost:3000) to access the application.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Dependencies
 
-## Learn More
+The GitHub Repositories Explorer application relies on the following dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React: JavaScript library for building user interfaces.
+- TypeScript: Typed superset of JavaScript that compiles to plain JavaScript.
+- SASS: CSS extension language for styling.
+- Formik: Form library for React applications.
+- Yup: JavaScript schema builder for value parsing and validation.
+- Redux: Predictable state container for JavaScript apps.
+- Axios: Promise-based HTTP client for the browser and Node.js.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
+
+The application follows the Atomic Design methodology, organizing components into different layers based on their complexity and reusability. The structure of the project is as follows:
+
+```
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   │   ├── icons/
+│   │   │   └── ...
+│   │   └── styles/
+│   │   │   └── ...
+│   ├── components/
+│   │   ├── atoms/
+│   │   │   └── ...
+│   │   ├── molecules/
+│   │   │   └── ...
+│   │   └── organisms/
+│   │   │   └── ...
+│   ├── interface/
+│   │   └── github
+│   │   │   └── index.ts
+│   ├── pages/
+│   │   ├── Error/
+│   │   │   └── index.ts
+│   │   └── Home/
+│   │   │   └── index.ts
+│   └── plugins/
+│   │   └── api/
+│   │   │   ├── repos/
+│   │   │   │   └── index.ts
+│   │   │   ├── users/
+│   │   │   │   └── index.ts
+│   │   │   └── index.ts
+│   │   └── axios/
+│   │   │   ├── errorResponseHandler.ts
+│   │   │   └── index.ts
+│   │   └── redux/
+│   │   │   ├── actions/
+│   │   │   │   └── ...
+│   │   │   ├── reducers/
+│   │   │   │   └── ...
+│   │   │   └── store/
+│   │   │   │   └── ...
+│   │   └── router/
+│   │   │   └── index.tsx
+│   └── ...
+├── .env
+├── .env.example
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
+```
