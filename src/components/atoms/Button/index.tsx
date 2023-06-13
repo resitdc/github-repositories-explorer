@@ -13,7 +13,7 @@ interface ButtonProps {
 };
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const className = ["btn"];
+  const classes = ["btn"];
   const {
     color = "primary",
     children,
@@ -23,6 +23,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     type,
     disabled,
     full,
+    className,
     ...rest
   } = props;
 
@@ -40,16 +41,16 @@ const Button: React.FC<ButtonProps> = (props) => {
     red: "btn-red",
   }[color];
 
-  if (size) className.push(sizeStyle);
-  if (color) className.push(colorStyle);
-  if (props.className) className.push(props.className);
-  if (isLoading) className.push("btn-loading");
-  if (full) className.push("btn-full");
+  if (size) classes.push(sizeStyle);
+  if (color) classes.push(colorStyle);
+  if (isLoading) classes.push("btn-loading");
+  if (full) classes.push("btn-full");
+  if (className) classes.push(className);
 
   return (
     <button
       type={type}
-      className={className.join(" ")}
+      className={classes.join(" ")}
       disabled={isLoading || disabled}
       onClick={onClick}
       {...rest}
