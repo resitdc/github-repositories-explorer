@@ -1,0 +1,31 @@
+@keyframes load {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.skeleton-loading {
+  background: rgba(214, 214, 214, 0.7);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(175, 175, 175, 0.7) 50%,
+      transparent 100%
+    );
+    animation: load 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}

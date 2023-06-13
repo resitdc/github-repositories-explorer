@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useState } from "react";
-import { Button, Input, FormGroup, UserButton } from "components/atoms";
+import { Button, Input, FormGroup } from "components/atoms";
 import { Users } from "components/molecules";
 import useAPI from "plugins/api";
 import { useDispatch, useSelector } from "react-redux";
@@ -85,6 +85,7 @@ const Home: React.FC = () => {
           submitedUsername &&
           <div className="color-black-2 py-2">Showing users for "{submitedUsername}"</div>
         }
+        <div className="skeleton-loading" style={{width: "100%", height: "20px"}}></div>
         <div className="mt-2">
           {
             users.length > 0
@@ -102,7 +103,6 @@ const Home: React.FC = () => {
               )
           }
         </div>
-
       </div>
     </div>
   );
