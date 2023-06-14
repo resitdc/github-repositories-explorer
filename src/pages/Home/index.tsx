@@ -50,6 +50,7 @@ const Home: React.FC = () => {
         const responseData = error?.response?.data as Response | undefined;
         if (responseData) {
           // In case backend have a message
+          alert("Something wrong, message from backend");
         } else {
           alert("Something wrong, try again");
         }
