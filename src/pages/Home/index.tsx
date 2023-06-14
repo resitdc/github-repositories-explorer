@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Button, Input, FormGroup } from "components/atoms";
 import { Users } from "components/molecules";
 import useAPI from "plugins/api";
@@ -15,39 +15,50 @@ const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitedUsername, setSubmitedUsername] = useState("");
   const users = useSelector((state: RootStateType) => state.githubReducer.users);
+
   interface FormData {
     username: string;
-  }  
-  
-  const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Username is required"),
-  });
-  
-  const initialValues: FormData = {
-    username: "",
-  };
+  }
 
-  const onSubmit = async (formData: FormData) => {
-    setIsLoading(true);
-    try {
-      const { username } = formData;
-      // limit data per page is 5, base on test rules
-      const response = await getUsersSearch(username, 5);
-      const responseData = response.data;
-      dispatch(setUsers(responseData.items));
-      setSubmitedUsername(username);
-    } catch (err) {
-      const error = err as AxiosErrorResponse;
-      const responseData = error?.response?.data as Response | undefined;
-      if (responseData) {
-        // In case backend have a message
-      } else {
-        alert("Something wrong, try again");
+  const validationSchema = useMemo(
+    () =>
+      Yup.object().shape({
+        username: Yup.string().required("Username is required"),
+      }),
+    []
+  );
+
+  const initialValues: FormData = useMemo(
+    () => ({
+      username: "",
+    }),
+    []
+  );
+
+  const onSubmit = useCallback(
+    async (formData: FormData) => {
+      setIsLoading(true);
+      try {
+        const { username } = formData;
+        // limit data per page is 5, base on test rules
+        const response = await getUsersSearch(username, 5);
+        const responseData = response.data;
+        dispatch(setUsers(responseData.items));
+        setSubmitedUsername(username);
+      } catch (err) {
+        const error = err as AxiosErrorResponse;
+        const responseData = error?.response?.data as Response | undefined;
+        if (responseData) {
+          // In case backend have a message
+        } else {
+          alert("Something wrong, try again");
+        }
+      } finally {
+        setIsLoading(false);
       }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    },
+    [dispatch, getUsersSearch]
+  );
 
   return (
     <div className="pt-4">
@@ -68,7 +79,7 @@ const Home: React.FC = () => {
                   disabled={isLoading}
                 />
               </FormGroup>
-      
+
               <Button
                 type="submit"
                 color="primary"
@@ -81,20 +92,24 @@ const Home: React.FC = () => {
             </Form>
           )}
         </Formik>
-        {
-          submitedUsername &&
-          <div className="color-black-2 py-2">Showing users for "{submitedUsername}"</div>
-        }
+        {submitedUsername && (
+          <div className="color-black-2 py-2">
+            Showing users for "{submitedUsername}"
+          </div>
+        )}
         <div className="mt-2">
-          {
-            users.length === 0 && submitedUsername &&
+          {users.length === 0 && submitedUsername && (
             <h2 className="text-center color-red">NO USER FOUND</h2>
-          }
+          )}
           <Users
-            data={users.map((user: UsersTypes) => ({
-              id: user.id,
-              username: user.login
-            }))}
+            data={useMemo(
+              () =>
+                users.map((user: UsersTypes) => ({
+                  id: user.id,
+                  username: user.login,
+                })),
+              [users]
+            )}
             isLoading={isLoading}
           />
         </div>
